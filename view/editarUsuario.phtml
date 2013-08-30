@@ -1,0 +1,20 @@
+<h1><?php echo $titulo; ?></h1>
+<h3><?php if (!empty($mensagem)): echo $mensagem; endif; ?></h3>
+
+<form action="index.php?page=atualizarUsuario" method="POST">
+    <label for="email"/>
+    <input id="email" name="email" value="<?php echo $usuario->getEmail() ?>"/>
+    <br />
+
+    <label for="senha"/>
+    <input id="senha" name="senha" />
+    <br />
+
+    <label for="confirmarSenha"/>
+    <input id="confirmarSenha" name="confirmarSenha"/>
+    <br />
+    <br />
+
+    <input name="id" type="hidden" value="<?php echo $usuario->getId() ?>"/>
+    <input type="submit" value="Salvar"/><a href="index.php?page=listarUsuarios">Cancelar</a>
+</form>
