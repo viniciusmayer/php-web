@@ -1,8 +1,8 @@
 <?php
 
-class EditarUsuarioAction implements iAction {
-
-    function execute() {
+class EditarUsuarioAction extends BaseAction implements iAction {
+    
+    function executeImpl() {
         $id = $_REQUEST["id"];
         if (empty($id)) {
             $mensagem = "Eh obrigatorio informar o id do usuario.";

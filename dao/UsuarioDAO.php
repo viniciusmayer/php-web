@@ -3,12 +3,13 @@
 class UsuarioDAO {
 
     function __construct() {
+        session_start();
         $usuarios = $_SESSION["usuarios"];
         if (empty($usuarios)) {
             $usuarios = array();
-            for ($j = 1; $j <= 10; $j+=1) {
-                array_push($usuarios, new Usuario($j, "email " . $j, "senha " . $j));
-            }
+            $admin = new Usuario(1, "admin", "4dm1n");
+            $admin->setAdmin(true);
+            array_push($usuarios, $admin);
             $_SESSION["usuarios"] = $usuarios;
         }
     }
@@ -47,17 +48,27 @@ class UsuarioDAO {
         $_SESSION["usuarios"] = $usuarios;
     }
 
+    function logout(){
+        \session_destroy();
+        return;
+    }
+    
     function login($email, $senha) {
         $usuarios = $_SESSION["usuarios"];
         foreach ($usuarios as $usuario) {
             if ($usuario->getEmail() === $email) {
                 if ($usuario->getSenha() === $senha) {
+                    $_SESSION["login"] = $usuario;
                     return $usuario;
                 }
             }
         }
     }
-
+    
+    function loggedIn() {
+        return !empty($_SESSION["login"]);
+    }
+    
     function getUsuario($id) {
         $usuarios = $_SESSION["usuarios"];
         foreach ($usuarios as $usuario) {
@@ -68,7 +79,14 @@ class UsuarioDAO {
     }
 
     function getUsuarios() {
-        return $_SESSION["usuarios"];
+        $usuarios = array();
+        $usuarios_session = $_SESSION["usuarios"];
+        foreach ($usuarios_session as $usuario) {
+            if (!$usuario->getAdmin()) {
+                array_push($usuarios, $usuario);
+            }
+        }
+        return $usuarios;
     }
 
 }

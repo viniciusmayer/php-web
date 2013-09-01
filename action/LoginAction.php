@@ -21,7 +21,6 @@ class LoginAction implements iAction {
             return;
         }
 
-        $_SESSION["login"] = $login;
         header(LoginAction::LISTAR_USUARIOS_LOCATION);
         die();
     }

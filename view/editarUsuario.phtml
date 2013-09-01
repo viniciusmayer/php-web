@@ -3,18 +3,18 @@
 
 <form action="index.php?page=atualizarUsuario" method="POST">
     <label for="email"/>
-    <input id="email" name="email" value="<?php echo $usuario->getEmail() ?>"/>
+    <input id="email" name="email" type="text" value="<?php echo $usuario->getEmail() ?>"/>
     <br />
 
     <label for="senha"/>
-    <input id="senha" name="senha" />
+    <input id="senha" name="senha" type="password"/>
     <br />
 
     <label for="confirmarSenha"/>
-    <input id="confirmarSenha" name="confirmarSenha"/>
+    <input id="confirmarSenha" name="confirmarSenha" type="password"/>
     <br />
     <br />
 
-    <input name="id" type="hidden" value="<?php echo $usuario->getId() ?>"/>
+    <input name="id" type="hidden" type="text" value="<?php echo $usuario->getId() ?>"/>
     <input type="submit" value="Salvar"/><a href="index.php?page=listarUsuarios">Cancelar</a>
 </form>

@@ -1,8 +1,8 @@
 <?php
 
-class ListarUsuariosAction implements iAction {
-
-    function execute() {
+class ListarUsuariosAction extends BaseAction implements iAction {
+    
+    function executeImpl() {
         $usuarioDAO = new UsuarioDAO();
         $usuarios = $usuarioDAO->getUsuarios();
 

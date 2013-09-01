@@ -13,6 +13,7 @@ final class Index {
             'UsuarioDAO' => 'dao/UsuarioDAO.php',
             'Usuario' => 'model/Usuario.php',
             'iAction' => 'action/iAction.php',
+            'BaseAction' => 'action/BaseAction.php',
             'LoginAction' => 'action/LoginAction.php',
             'LogoutAction' => 'action/LogoutAction.php',
             'EditarUsuarioAction' => 'action/EditarUsuarioAction.php',

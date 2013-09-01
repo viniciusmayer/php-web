@@ -1,8 +1,8 @@
 <?php
 
-class SalvarUsuarioAction implements iAction {
+class SalvarUsuarioAction extends BaseAction implements iAction {
 
-    function execute() {
+    function executeImpl() {
         $email = $_REQUEST["email"];
         if (empty($email)) {
             $titulo = "Criar usuario";

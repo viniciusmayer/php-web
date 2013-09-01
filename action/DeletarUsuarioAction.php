@@ -1,8 +1,8 @@
 <?php
 
-class DeletarUsuarioAction implements iAction {
-
-    function execute() {
+class DeletarUsuarioAction extends BaseAction implements iAction {
+    
+    function executeImpl() {
         $id = $_REQUEST["id"];
         if (empty($id)) {
             $mensagem = "Eh obrigatorio informar o id do usuario.";

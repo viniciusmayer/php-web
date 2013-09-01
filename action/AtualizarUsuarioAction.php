@@ -1,8 +1,8 @@
 <?php
 
-class AtualizarUsuarioAction implements iAction {
-
-    function execute() {
+class AtualizarUsuarioAction extends BaseAction implements iAction {
+    
+    function executeImpl() {
         $id = $_REQUEST["id"];
         if (empty($id)) {
             header(AtualizarUsuarioAction::LISTAR_USUARIOS_LOCATION);
