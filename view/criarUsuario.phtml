@@ -1,19 +1,30 @@
-<h1><?php echo $titulo; ?></h1>
-<h3><?php if (!empty($mensagem)): echo $mensagem; endif; ?></h3>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    </head>
+    <body>
+        <div id="geral">
+            <h1><?php echo $titulo; ?></h1>
+            <h3><?php if (!empty($mensagem)): echo $mensagem; endif; ?></h3>
 
-<form action="index.php?page=salvarUsuario" method="POST">
-    <label for="email"/>
-    <input id="email" name="email" type="text" value="<?php if (!empty($email)): echo $email; endif; ?>"/>
-    <br />
+            <form action="index.php?page=salvarUsuario" method="POST">
+                <div id="formulario">
+                    <label for="email">Email:</label>
+                    <input id="email" name="email" type="text" value="<?php if (!empty($email)): echo $email; endif; ?>"/>
+                    <br />
 
-    <label for="senha"/>
-    <input id="senha" name="senha" type="password"/>
-    <br />
+                    <label for="senha">Senha:</label>
+                    <input id="senha" name="senha" type="password"/>
+                    <br />
 
-    <label for="confirmarSenha"/>
-    <input id="confirmarSenha" name="confirmarSenha" type="password"/>
-    <br />
-    <br />
-
-    <input type="submit" value="Salvar"/><a href="index.php?page=listarUsuarios">Cancelar</a>
-</form>
+                    <label for="confirmarSenha">Confirmar a senha:</label>
+                    <input id="confirmarSenha" name="confirmarSenha" type="password"/>
+                </div>
+                <div id="botoes">
+                    <input type="submit" value="Salvar"/><a href="index.php?page=listarUsuarios">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

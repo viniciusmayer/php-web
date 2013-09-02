@@ -1,30 +1,41 @@
-<h1><?php echo $titulo; ?></h1>
-<h3><?php if (!empty($mensagem)): echo $mensagem; endif; ?></h3>
-<a href="index.php?page=criarUsuario">Criar</a>
-<br />
-<br />
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <script src="js/scripts.js"></script>
+    </head>
 
-<?php if (!empty($usuarios)): ?>
-    <table>
-        <tr>
-            <th>Email</th>
-            <th>Senha</th>
-            <th>Acoes</th>
-        </tr>
-    <?php foreach ($usuarios as $usuario): ?>
-        <tr>
-            <td>
-                <a href="index.php?page=editarUsuario&id=<?php echo $usuario->getId(); ?>"><?php echo $usuario->getEmail(); ?></a>
-            </td>
-            <td><?php echo $usuario->getSenha(); ?></td>
-            <td><a href="index.php?page=deletarUsuario&id=<?php echo $usuario->getId(); ?>">Deletar</a></td>
-        </tr>
-    <?php endforeach; ?>
-    </table>
-<?php endif; ?>
-<br />
-<br />
+    <body>
+        <div id="geral">
+            <h1><?php echo $titulo; ?></h1>
+            <h3><?php if (!empty($mensagem)): echo $mensagem; endif; ?></h3>
 
-<form action="index.php?page=logout" method="POST">
-    <input type="submit" value="Logout"/>
-</form>
+            <?php if (!empty($usuarios)): ?>
+                <table>
+                    <tr>
+                        <th>Email</th>
+                        <th>Senha</th>
+                        <th>Acoes</th>
+                    </tr>
+                    <?php foreach ($usuarios as $usuario): ?>
+                        <tr>
+                            <td>
+                                <a href="index.php?page=editarUsuario&id=<?php echo $usuario->getId(); ?>"><?php echo $usuario->getEmail(); ?></a>
+                            </td>
+                            <td><?php echo $usuario->getSenha(); ?></td>
+                            <td>
+                                <a href="index.php?page=deletarUsuario&id=<?php echo $usuario->getId(); ?>" onclick="return popupConfirmacao('Tens certesa?')">Deletar</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            <?php endif; ?>
+
+            <div id="botoes">
+                <form action="index.php?page=criarUsuario" method="POST">
+                    <input type="submit" value="Criar"/><a href="index.php?page=logout">Logout</a>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
