@@ -10,6 +10,7 @@ class ListarUsuariosAction extends BaseAction implements iAction {
             $mensagem = "Nenhum usuario encontrado.";
         }
 
+        $login = $usuarioDAO->loggedIn();
         $titulo = "Listar usuarios";
         require __DIR__ . ListarUsuariosAction::LISTAR_USUARIOS_PAGE;
         return;

@@ -18,6 +18,7 @@ class EditarUsuarioAction extends BaseAction implements iAction {
             return;
         }
 
+        $login = $usuarioDAO->loggedIn();
         $titulo = "Editar usuario";
         require __DIR__ . EditarUsuarioAction::EDITAR_USUARIO_PAGE;
     }

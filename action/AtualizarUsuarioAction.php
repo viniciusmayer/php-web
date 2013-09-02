@@ -3,6 +3,10 @@
 class AtualizarUsuarioAction extends BaseAction implements iAction {
     
     function executeImpl() {
+        $usuarioDAO = new UsuarioDAO();
+        $login = $usuarioDAO->loggedIn();
+        $titulo = "Editar usuario";
+        
         $id = $_REQUEST["id"];
         if (empty($id)) {
             header(AtualizarUsuarioAction::LISTAR_USUARIOS_LOCATION);
@@ -18,7 +22,6 @@ class AtualizarUsuarioAction extends BaseAction implements iAction {
 
         $email = $_REQUEST["email"];
         if (empty($email)) {
-            $titulo = "Editar usuario";
             $mensagem = "Eh obrigatorio informar o email do usuario.";
             require __DIR__ . AtualizarUsuarioAction::EDITAR_USUARIO_PAGE;
             return;
@@ -27,7 +30,6 @@ class AtualizarUsuarioAction extends BaseAction implements iAction {
         $senha = $_REQUEST["senha"];
         $confirmarSenha = $_REQUEST["confirmarSenha"];
         if (!empty($senha) && !($senha === $confirmarSenha)) {
-            $titulo = "Editar usuario";
             $mensagem = "As senhas informadas nao conferem.";
             require __DIR__ . AtualizarUsuarioAction::EDITAR_USUARIO_PAGE;
             return;

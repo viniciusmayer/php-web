@@ -66,7 +66,7 @@ class UsuarioDAO {
     }
     
     function loggedIn() {
-        return !empty($_SESSION["login"]);
+        return $_SESSION["login"];
     }
     
     function getUsuario($id) {

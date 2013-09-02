@@ -1,39 +1,114 @@
 body {
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 div#geral {
     margin: 0 auto;
     text-align: left;
-    width: 50%;
+    margin-top: 5px;
+    width: 810px;
+    border: 5px solid black;
+    padding: 2px;
+}
+
+div#cabecalho {
+    height: 95px;
+    font-size: large;
+    border: 5px black dotted;
+}
+
+div#barrasuperior {
+    border: 5px black dotted;
+    height: 28px;
+    margin-top: 5px;
     background-color: lightgray;
 }
 
-div#geral h1 {
-    margin: 0 auto;
+div#barrasuperior div#entrar {
+    float: right;
+    padding-top: 6px;
+    padding-right: 5px;
+}
+
+div#barrasuperior a {
+    height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left: 5px solid black;
+}
+
+div#centro {
+    margin: 10px;
+    border: 5px solid black;
+    padding: 2px;
+}
+
+div#barratitulo {
+    padding-left: 10px;
+    border: 5px black dotted;
+    font-weight: bold;
+}
+
+div#barramensagem {
+    padding: 10px;
     text-align: center;
-    padding: 10px;
+    border: 5px black dotted;
+    margin-top: 5px;
+    background-color: lightgray;
 }
 
-div#geral h3 {
-    margin: 0 auto;
-    text-align: left;
-    padding: 10px;
+div#corpo {
+    margin: 10px;
+    border: 5px black solid;
+    padding: 20px;
 }
 
-div#formulario label {
+div#corpo label {
     font-weight: bold;
     float: left;
-    width: 25%;
+    width: 155px;
     text-align: right;
     padding-right: 5px;
 }
 
-div#formulario input {
-    width: 65%;
+div#corpo table{
+    border-collapse: collapse;
+    width: 100%;
 }
 
-div#botoes{
+div#corpo table th{
+    border: 5px black dotted;
+    background-color: lightgray;
+}
+
+div#corpo table td{
+    border: 5px black dotted;
+}
+
+div#corpo table td.acoes{
+    text-align: center;
+}
+
+div#corpo table td.acoes a{
+    padding-left: 5px;
+}
+
+div#barraacoes {
     text-align: center;
     padding: 10px;
+    border: 5px black dotted;
+    margin-top: 5px;
+}
+
+div#barraacoes input {
+    margin-right: 20px;
+}
+
+div#rodape {
+    clear: both;
+    text-align: center;
+    height: 81px;
+    border: 5px black dotted;
 }
