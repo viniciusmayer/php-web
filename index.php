@@ -4,7 +4,7 @@ final class Index {
 
     function init() {
         error_reporting(E_ERROR | E_STRICT);
-        //mb_internal_encoding('UTF-8');
+        mb_internal_encoding('UTF-8');
         spl_autoload_register(array($this, 'loadClass'));
     }
 
